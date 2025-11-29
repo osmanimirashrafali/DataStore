@@ -12,8 +12,14 @@ pipeline {
   stages {
     stage("Repo Clone") {
       steps {
-        checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/osmanimirashrafali/DataStore.git']])
-      }
+checkout([
+          $class: 'GitSCM',
+          branches: [[name: '*/master']],
+          userRemoteConfigs: [[
+            url: 'https://github.com/osmanimirashrafali/DataStore.git'
+          ]],
+          extensions: []
+        ])      }
     }
     stage("Maven Build") {
       steps {

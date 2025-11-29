@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage("Repo Clone") {
       steps {
-        checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/https://github.com/osmanimirashrafali/DataStore.git']])
+        checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/osmanimirashrafali/DataStore.git']])
       }
     }
     stage("Maven Build") {
